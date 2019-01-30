@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  this is the detail page
+{% endblock %}
+
+{% block body %}
+  First Name: {{ candidates.firstname_text }} <br/>
+  Last Name: {{ candidates.lastname_text }} <br/>
+  Birth Date: {{ candidates.birthdate_field }} <br/>
+  Platform: {{ candidates.platform_text }} <br/>
+  Votes: {{ votes.votes_count }} <br />
+  <a href="{% url 'votes:update' candidates.id %}"> UPDATE </a>
+  <a href="#"> VOTE CANDIDATE </a>
+  <a href="{% url 'votes:index' %}"> BACK </a>
+{% endblock %}

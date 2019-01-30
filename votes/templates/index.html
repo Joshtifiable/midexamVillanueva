@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+  this is the index page
+{% endblock %}
+
+{% block body %}
+  <ol>
+  {% for candidate in candidates %}
+  <li>
+    Last Name: {{ candidate.lastname_text }} <br/>
+  </li>
+  <li>
+    First Name: {{ candidate.firstname_text }} <br/>
+  </li>
+  <li>
+    Birth Date: {{ candidate.birthdate_field }} <br/>
+  </li>
+  <li>
+    Platform: {{ candidate.platform_text }} <br/>
+  </li>
+  <li>
+    <a href="{% url 'votes:detail' candidate.id %}"> DETAILS </a> <br />
+  </li>
+  {% endfor %}
+  </ol>
+  <a href="{% url 'votes:create'%}"> CREATE CANDIDATE </a>
+  <a href="{% url 'votes:poscreate' %}"> CREATE POSITION </a>
+{% endblock %}
